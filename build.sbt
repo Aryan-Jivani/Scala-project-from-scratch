@@ -1,7 +1,7 @@
 ThisBuild / scalaVersion := "3.8.2"
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / githubWorkflowPublishTargetBranches := Seq()
-
+ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("21"))
 lazy val commonSettings = Seq(
   scalacOptions -= "-Xfatal-warnings",
   libraryDependencies ++= Seq(
