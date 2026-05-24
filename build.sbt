@@ -1,5 +1,8 @@
+ThisBuild / scalaVersion := "3.8.2"
+ThisBuild / versionScheme := Some("early-semver")
+ThisBuild / githubWorkflowPublishTargetBranches := Seq()
+
 lazy val commonSettings = Seq(
-  scalaVersion := "3.8.2",
   scalacOptions -= "-Xfatal-warnings",
   libraryDependencies ++= Seq(
     "org.typelevel" %% "cats-effect" % "3.7.0",
@@ -19,5 +22,5 @@ lazy val client = project
 
 lazy val root = project
   .in(file("."))
-  .settings(commonSettings)
+  .settings(publish := {}, publish / skip := true)
   .aggregate(server, client, shared)
